@@ -11,6 +11,10 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->get('/random', function () use ($router) {
+    return \App\Gkk::inRandomOrder()->first();
+});
+
+$router->get('/gkk/{id}', function ($id) use ($router) {
+    return \App\Gkk::where('id', $id)->first();
 });
